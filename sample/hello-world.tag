@@ -19,7 +19,7 @@
     key = 'sample key';
     value = 'sample value';
     title = opts.title;
-    names = opts.name;
+    names = opts.names;
     stocks = opts.stocks;
     </script>
 
