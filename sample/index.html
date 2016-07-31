@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <title>Hello World</title>
+</head>
+<body>
+    <!-- mount point -->
+    <hello-world></hello-world>
+    <script src='./hello-world.tag' type='riot/tag'></script>
+
+
+    <!-- include riot.js and the compiler -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/riot/2.5.0/riot+compiler.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js'></script> -->
+
+    <!-- mount normally -->
+    <!-- <script type='text/babel'> -->
+    <script>
+    // $.get('http://cors.io/?u=http://stockmarket.streamdata.io/prices', data => { // es6
+    $.get('http://cors.io/?u=http://stockmarket.streamdata.io/prices', function(data) {
+        loadStockMarket(JSON.parse(data));
+    });
+
+    // var loadStockMarket = stocks => { // es6
+    function loadStockMarket(stocks) {
+        var names = [{key:1, value:'One'},{key:2, value:'Two'}];
+        var stocks = stocks;
+        riot.mount('hello-world', {title:'My Title', names: names, stocks: stocks, });
+    }
+
+    </script>
+    <!-- <script> riot.mount('*') </script> -->
+</body>
+</html>
